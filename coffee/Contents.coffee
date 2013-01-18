@@ -24,7 +24,7 @@ class Contents
 			height : WindowManager.WH
 			opacity : 0
 			})
-		@$base.animate({opacity:1},600)
+		@$base.animate({ opacity : 1 }, 600 )
 
 		#実際にコンテンツを表示するコンテナへの処理
 		@$inner = $('.contentInner')
@@ -36,24 +36,24 @@ class Contents
 
 		#初めてのリクエストの時、ロゴ表示のタイミングとあわせディレイをかける
 		if window.App.isFirstRequest is false	
-			setTimeout ()->
+			setTimeout ()=>
 				@fadeInInner()
 			, 800
 		else
-			@fadeInInner
+			@fadeInInner()
 
 		$('.close').on 'click', @closeHandler
 		return
 
 	#inner のフェードイン処理
 	fadeInInner:()->
-		@$inner.addClass('bokeh').on 'webkitAnimationEnd', innerFaedInCompleteHandler
+		@$inner.addClass('bokeh').on 'webkitAnimationEnd', delegater( @, @innerFaedInCompleteHandler )
 
 	#inner のフェードイン完了
-	innerFaedInCompleteHandler:(event)->		
+	innerFaedInCompleteHandler:(event)->	
 		@$inner.removeClass('bokeh')
 		@$inner.css {opacity:1}
-		@$inner.off 'webkitAnimationEnd', innerFaedInCompleteHandler
+		@$inner.off 'webkitAnimationEnd', @innerFaedInCompleteHandler
 
 	#閉じるボタンがクリックされた時
 	closeHandler:(event)->

@@ -19,13 +19,13 @@ class Router extends Kazitori
 			if id in @pool
 				contents = @pool[id]
 			else
-				contents = new Contents(id, @recipes[id-1])
+				contents = new Contents( id, @recipes[id-1] )
 				@pool[id] = contents
 			contents.show()
 
 loading = null
 $(document).ready ()->
-	App = win.App = new Router({root:'/'})
+	App = win.App = new Router({ root : '/' })
 	$App = $(App)
 	$win = $(window)
 	WindowManager.start()
@@ -46,14 +46,14 @@ loadResource =()->
 			World.init()
 			
 			WindowManager.handlers.push((event)->
-				$("#contentFooter").css({bottom:0})
+				$("#contentFooter").css({ bottom : 0 })
 			)
 			update()
 		})	
 
 
 update = ()->
-	requestAnimationFrame(update)
+	requestAnimationFrame( update )
 	World.update()
 
 
@@ -68,7 +68,7 @@ hidedHandler =(event)->
 		World.intro()
 	else
 		World.AddRecipes()
-		App.show(App.state)
+		App.show( App.state )
 
 firstRequestCompleteHandler=(event)->
 	App.isFirstRequest = true

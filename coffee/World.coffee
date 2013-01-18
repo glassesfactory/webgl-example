@@ -215,6 +215,7 @@ do(window)->
 				obj.rotation.y += (Math.random() / 180 * Math.PI * 0.2) * obj.direction
 
 		if w.win.App.state is "index"
+			#ロールオーバーチェック
 			w.renderMouseMove()
 
 		w.renderer.render(w.scene, w.camera)
@@ -238,7 +239,7 @@ do(window)->
 
 	#マウスとオブジェクトが重なっているかどうかをチェックする
 	World.computeIntesects=()->
-		vect = new THREE.Vector3( w.mouse.x, w.mouse.y, 0.5)
+		vect = new THREE.Vector3( w.mouse.x, w.mouse.y, 0.5 )
 		w.projector.unprojectVector(vect, w.camera)
 		
 		ray = new THREE.Raycaster( w.camera.position, vect.sub( w.camera.position ).normalize())

@@ -28,9 +28,9 @@ do(window)->
 			WindowManager.camera.aspect = WindowManager.WW / WindowManager.WH
 			WindowManager.camera.updateProjectionMatrix()
 		if WindowManager.renderer?
-			WindowManager.renderer.setSize(WindowManager.WW, WindowManager.WH)
+			WindowManager.renderer.setSize( WindowManager.WW, WindowManager.WH )
 
 		for handler in WindowManager.handlers
-			handler.apply(handler, event)
+			handler.apply( handler, event )
 	
 	window.WindowManager = WindowManager
