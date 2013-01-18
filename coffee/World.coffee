@@ -33,7 +33,7 @@ do(window)->
 
 		w.scene.add(new THREE.AmbientLight(0x666666))
 
-		light = new THREE.DirectionalLight(0xffffff, 1.1)
+		light = new THREE.DirectionalLight(0xbcbcbc, 1.1)
 		light.position.set( 0, 500, 1500 )
 		light.castShadow = true
 
